@@ -1,5 +1,4 @@
-<html ng-app="cdg" ng-controller="mainController">
-<head>
+<html ng-app="cdg" ng-controller="mainController"><head>
 	<title>{{app.title}}</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 
@@ -18,9 +17,9 @@
 	<script src="app.js"></script>
 
 	<!-- Controllers -->
-	<script src="controllers/mainController.js"></script>
+	<script src="controllers/mainController.js"></script><script src="controllers/baselController.js"></script>
 	<script src="controllers/exampleController.js"></script>
-</head>
+<script src="controllers/baselController.js"></script></head>
 <body>
 	<!-- Menu -->
 	<nav class="navbar navbar-default">
@@ -42,5 +41,5 @@
 	<!-- Onde será carregada a view -->
 	<div ng-view="" class="container"></div>
 
-</body>
-</html>
+
+</body></html>
