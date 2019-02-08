@@ -26,7 +26,7 @@
         "angular-route": "1.5.1",
         "angular-utils-pagination": "0.11.0",
         "basel-cli": "*",
-        "electron-packager": "^12.1.0",
+        "electron-packager": "^13.0.1",
         "electron-prebuilt": "1.4.13",
         "jquery": "^3.3.1"
     },
@@ -35,6 +35,7 @@
     "title": "blades",
     "type": "simple",
     "dependencies": {
-        "hoek": "^5.0.3"
+        "hoek": "^5.0.3",
+        "request": "^2.88.0"
     }
 }
