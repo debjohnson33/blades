@@ -28,7 +28,7 @@
         "basel-cli": "*",
         "electron-packager": "^13.0.1",
         "electron-prebuilt": "1.4.13",
-        "jquery": "^3.3.1"
+        "jquery": "^3.4.0"
     },
     "titel": "blades",
     "database": "bladesdb",
