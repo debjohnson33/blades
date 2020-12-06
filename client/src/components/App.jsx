@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import GoatList from './GoatList.jsx';
+import GoatDetails from './GoatDetails.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class App extends React.Component {
       goats: [],
       currentGoat: {}
     }
+    this.selectGoat = this.selectGoat.bind(this);
   }
 
   componentDidMount() {
@@ -23,12 +25,19 @@ class App extends React.Component {
       });
   }
 
+  selectGoat(goat) {
+    this.setState({
+      currentGoat: goat
+    });
+  }
+
   render() {
-    const { goats } = this.state;
+    const { goats, currentGoat } = this.state;
     return (
       <div>
         <h1>Goats List!</h1>
-        <GoatList goats={goats} />
+        <GoatDetails goat={this.state.currentGoat || this.state.goats[0]} />
+        <GoatList goats={goats} selectGoat={this.selectGoat} />
       </div>
     )
   }
