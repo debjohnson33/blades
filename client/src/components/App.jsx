@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import GoatList from './GoatList.jsx';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Goats List!</h1>
-        {goats.map(goat => <div><li>{goat.name}</li> <p>{goat.description}</p></div>)}
+        <GoatList goats={goats} />
       </div>
     )
   }
