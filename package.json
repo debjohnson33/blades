@@ -2,13 +2,14 @@
   "name": "goatlist",
   "version": "1.0.0",
   "description": "Listing of goats",
-  "main": "index.js",
+  "main": "public/Main.js",
   "scripts": {
     "start": "nodemon server/index.js",
     "load": "node datase/index.js",
     "build": "webpack -d -w",
     "production": "webpack --config webpack.prod.config.js && node server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron-start": "electron ."
   },
   "author": "Deb Johnson",
   "license": "ISC",
@@ -27,5 +28,8 @@
     "sequelize": "^6.3.5",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
+  },
+  "devDependencies": {
+    "electron": "^11.0.3"
   }
 }
