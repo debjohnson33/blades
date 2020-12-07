@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(224, 198, 111);
+}
+
+li {
+  list-style-type: square;
+  color: rgb(40, 82, 82);
+}
+
+a {
+  color: rgb(52, 100, 58);
+}
+
+.goatDetails {
+  border: 2px solid #9e1010;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 3px;
+  font-size: 15px;
+}

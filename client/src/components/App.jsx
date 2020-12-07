@@ -56,7 +56,7 @@ class App extends React.Component {
     const { goats, currentGoat } = this.state;
     return (
       <div>
-        <h1>Goats List!</h1>
+        <h1>Goat List!</h1>
         <GoatDetails goat={this.state.currentGoat || this.state.goats[0]} />
         <GoatList goats={goats} selectGoat={this.selectGoat} />
         <GoatForm onSubmit={this.onSubmit.bind(this)}/>
