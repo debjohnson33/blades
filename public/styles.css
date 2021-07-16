@@ -1,14 +1,14 @@
 body {
-  background-color: rgb(224, 198, 111);
+  background-color: tan;
 }
 
 li {
   list-style-type: square;
-  color: rgb(40, 82, 82);
+  color: olivedrab;
 }
 
 a {
-  color: rgb(52, 100, 58);
+  color: darkgreen;
 }
 
 .goatDetails {
