@@ -1,17 +1,19 @@
 const { Sequelize } = require('sequelize');
 
-const db = new Sequelize('goatlist', 'root', 'sudoroot',
+const db = new Sequelize('blades', 'root', 'sudoroot',
   {
-    host: 'localhost',
-    dialect: 'mariadb'
+    dialect: 'sqlite',
+    storage: './blades.sqlite'
   }
 );
 
-const Goat = db.define('Goat', {
+const Blade = db.define('Blade', {
   name: Sequelize.STRING,
-  description: Sequelize.STRING
+  stens: Sequelize.STRING,
+  manufacturerNumber: Sequelize.STRING,
+  manufacturerName: Sequelize.STRING,
 });
 
-Goat.sync();
+Blade.sync();
 
-exports.Goat = Goat;
+exports.Blade = Blade;

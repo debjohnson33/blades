@@ -8,20 +8,20 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-app.get('/api/goats', (req, res) => {
-  db.Goat.findAll()
-    .then(goats => {
-      res.send(goats);
+app.get('/api/blades', (req, res) => {
+  db.Blade.findAll()
+    .then(blades => {
+      res.send(blades);
     })
     .catch(err => {
       console.log(err);
     })
 });
 
-app.post('/api/goats', (req, res) => {
-  db.Goat.create({name: req.body.name, description: req.body.description})
+app.post('/api/blades', (req, res) => {
+  db.Blade.create({name: req.body.name, description: req.body.description})
   .then(() => {
-    db.Goat
+    db.Blade
       .findOrCreate({where: {name: req.body.name, description: req.body.description}})
       .then((cow, created) => {
         res.sendStatus(created ? 201 : 200);
