@@ -10,10 +10,21 @@ const db = new Sequelize('blades', 'root', 'sudoroot',
 const Blade = db.define('Blade', {
   name: Sequelize.STRING,
   stens: Sequelize.STRING,
-  manufacturerNumber: Sequelize.STRING,
-  manufacturerName: Sequelize.STRING,
+  quantity: Sequelize.INTEGER,
 });
 
-Blade.sync();
+const Manufacturer = db.define('Blade', {
+  manufacturerName: Sequelize.STRING,
+  manufacturerID: Sequelize.STRING,
+});
 
-exports.Blade = Blade;
+Blade.belongsTo(Manufacturer);
+Manufacturer.hasMany(Blade);
+
+Blade.sync();
+Manufacturer.sync();
+
+module.exports = {
+  Blade,
+  Manufacturer
+}
