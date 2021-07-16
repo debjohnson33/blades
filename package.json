@@ -1,7 +1,7 @@
 {
   "name": "goatlist",
   "version": "1.0.0",
-  "description": "Listing of goats",
+  "description": "Listing of blades",
   "main": "public/Main.js",
   "scripts": {
     "start": "nodemon server/index.js",
