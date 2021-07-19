@@ -19,16 +19,17 @@ class App extends React.Component {
     axios.get('http://localhost:3000/api/blades')
       .then(res => {
         const blades = res.data;
+        console.log(blades);
         this.setState({
           blades: blades,
-          currentGoat: blades[0]
+          currentBlade: blades[0]
         });
       });
   }
 
-  onSubmit(e, name, description) {
-    console.log('Submitted: ', name, stens, quantity);
-    const goat = {name: name, stens: stens, quantity: quantity};
+  onSubmit(e, stens, quantity, manufacturer) {
+    console.log('Submitted: ', stens, quantity, manufacturer);
+    const blade = {stens: stens, quantity: quantity, manufacturer: manufacturer};
     e.preventDefault();
     this.setState(previousState => {
       return { blades: [...previousState.blades, blade]}
@@ -46,7 +47,7 @@ class App extends React.Component {
       })
   }
 
-  selectGoat(blade) {
+  selectBlade(blade) {
     this.setState({
       currentBlade: blade
     });
@@ -56,8 +57,8 @@ class App extends React.Component {
     const { blades, currentBlade } = this.state;
     return (
       <div>
-        <h1>Blade List!</h1>
-        <BladeDetails blade={this.state.currentBlade || this.state.blades[0]} />
+        <h1>Blade List</h1>
+        <BladeDetails blade={currentBlade || blades[0]} />
         <BladeList blades={blades} selectBlade={this.selectBlade} />
         <BladeForm onSubmit={this.onSubmit.bind(this)}/>
       </div>

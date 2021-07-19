@@ -1,13 +1,14 @@
 import React from 'react';
 import '../../../public/styles.css';
 
-const GoatDetails = ({goat}) => {
+const BladeDetails = ({blade}) => {
   return (
-    <div className='goatDetails'>
-      <h2>Name: {goat.name}</h2>
-      <p><b>Description:</b>  {goat.description}</p>
+    <div className='bladeDetails'>
+      <h2>Stens: {blade.stens}</h2>
+      <p><b>Manufacturer:</b>  {blade.manufacturer}</p>
+      <p><b>Quantity:</b> {blade.quantity}</p>
     </div>
   )
 }
 
-export default GoatDetails;
+export default BladeDetails;

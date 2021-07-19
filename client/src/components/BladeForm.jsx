@@ -4,9 +4,9 @@ class BladeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
       stens: '',
-      quantity: 0
+      quantity: 0,
+      manufacturer: ''
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -20,37 +20,37 @@ class BladeForm extends React.Component {
   }
 
   submit(e) {
-    this.props.onSubmit(e, this.state.name, this.state.stens, this.state.quantity);
+    this.props.onSubmit(e, this.state.stens, this.state.quantity, this.state.manufacturer);
     this.setState({
-      name: '',
       stens: '',
-      quantity: 0
+      quantity: 0,
+      manufacturer: ''
     })
   }
 
   render() {
     return (
       <form onSubmit={this.submit.bind(this)}>
-        <p>Enter Blade Name</p>
-        <input
-          type="text"
-          name="name"
-          onChange={this.handleChange}
-          value={this.state.name}
-        />
         <p>Blade Stens</p>
         <input
           type="text"
-          name="description"
+          name="stens"
           onChange={this.handleChange}
           value={this.state.stens}
         />
         <p>Blade Quantity</p>
         <input
           type="text"
-          name="description"
+          name="quantity"
           onChange={this.handleChange}
           value={this.state.quantity}
+        />
+        <p>Blade Manufacturer</p>
+        <input
+          type="text"
+          name="quantity"
+          onChange={this.handleChange}
+          value={this.state.manufacturer}
         />
         <br></br>
         <input type='submit' />
