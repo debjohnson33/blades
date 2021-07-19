@@ -19,11 +19,35 @@ app.get('/api/blades', (req, res) => {
 });
 
 app.post('/api/blades', (req, res) => {
-  db.Blade.create({name: req.body.name, description: req.body.description})
+  db.Blade.create({name: req.body.name, description: req.body.stens, quantity: req.body.quantity})
   .then(() => {
     db.Blade
-      .findOrCreate({where: {name: req.body.name, description: req.body.description}})
-      .then((cow, created) => {
+      .findOrCreate({where: {name: req.body.name, description: req.body.stens, quantity: req.body.quantity}})
+      .then((blade, created) => {
+        res.sendStatus(created ? 201 : 200);
+      })
+  })
+  .catch(err => {
+    console.log(err);
+  })
+});
+
+app.get('/api/manufacturers', (req, res) => {
+  db.Manufacturer.findAll()
+    .then(manufacturers => {
+      res.send(manufacturers);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+});
+
+app.post('/api/manufacturer', (req, res) => {
+  db.Manufacturer.create({manufacturerName: req.body.manufacturerName, manufacturerID: req.body.manufacturerID})
+  .then(() => {
+    db.Manufacturer
+      .findOrCreate({where: {name: req.body.manufacturerName, manufacturerID: req.body.manufacturerID}})
+      .then((manufacturer, created) => {
         res.sendStatus(created ? 201 : 200);
       })
   })
