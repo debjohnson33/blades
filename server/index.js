@@ -57,5 +57,5 @@ app.post('/api/manufacturer', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('GoatList app listening at http://localhost:3000');
+  console.log('BladeList app listening at http://localhost:3000');
 });

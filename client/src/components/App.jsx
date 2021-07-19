@@ -1,43 +1,43 @@
 import React from 'react';
 import axios from 'axios';
 
-import GoatList from './GoatList.jsx';
-import GoatDetails from './GoatDetails.jsx';
-import GoatForm from './GoatForm.jsx';
+import BladeList from './BladeList.jsx';
+import BladeDetails from './BladeDetails.jsx';
+import BladeForm from './BladeForm.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      goats: [],
-      currentGoat: {}
+      blades: [],
+      currentBlade: {}
     }
-    this.selectGoat = this.selectGoat.bind(this);
+    this.selectBlade = this.selectBlade.bind(this);
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/goats')
+    axios.get('http://localhost:3000/api/blades')
       .then(res => {
-        const goats = res.data;
+        const blades = res.data;
         this.setState({
-          goats: goats,
-          currentGoat: goats[0]
+          blades: blades,
+          currentGoat: blades[0]
         });
       });
   }
 
   onSubmit(e, name, description) {
-    console.log('Submitted: ', name, description);
-    const goat = {name: name, description: description};
+    console.log('Submitted: ', name, stens, quantity);
+    const goat = {name: name, stens: stens, quantity: quantity};
     e.preventDefault();
     this.setState(previousState => {
-      return { goats: [...previousState.goats, goat]}
+      return { blades: [...previousState.blades, blade]}
     });
-    axios.post('http://localhost:3000/api/goats', goat)
+    axios.post('http://localhost:3000/api/blades', blade)
       .then(res => {
         if (res.data.affectedRows === 1) {
           this.setState(previousState => {
-            return { goats: [...previousState.goats, goat]}
+            return { blades: [...previousState.blades, blade]}
           });
         }
       })
@@ -46,20 +46,20 @@ class App extends React.Component {
       })
   }
 
-  selectGoat(goat) {
+  selectGoat(blade) {
     this.setState({
-      currentGoat: goat
+      currentBlade: blade
     });
   }
 
   render() {
-    const { goats, currentGoat } = this.state;
+    const { blades, currentBlade } = this.state;
     return (
       <div>
-        <h1>Goat List!</h1>
-        <GoatDetails goat={this.state.currentGoat || this.state.goats[0]} />
-        <GoatList goats={goats} selectGoat={this.selectGoat} />
-        <GoatForm onSubmit={this.onSubmit.bind(this)}/>
+        <h1>Blade List!</h1>
+        <BladeDetails blade={this.state.currentBlade || this.state.blades[0]} />
+        <BladeList blades={blades} selectBlade={this.selectBlade} />
+        <BladeForm onSubmit={this.onSubmit.bind(this)}/>
       </div>
     )
   }

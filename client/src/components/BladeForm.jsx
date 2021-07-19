@@ -1,11 +1,12 @@
 import React from 'react';
 
-class GoatForm extends React.Component {
+class BladeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      description: ''
+      stens: '',
+      quantity: 0
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -19,29 +20,37 @@ class GoatForm extends React.Component {
   }
 
   submit(e) {
-    this.props.onSubmit(e, this.state.name, this.state.description);
+    this.props.onSubmit(e, this.state.name, this.state.stens, this.state.quantity);
     this.setState({
       name: '',
-      description: ''
+      stens: '',
+      quantity: 0
     })
   }
 
   render() {
     return (
       <form onSubmit={this.submit.bind(this)}>
-        <p>Enter Goat Name</p>
+        <p>Enter Blade Name</p>
         <input
           type="text"
           name="name"
           onChange={this.handleChange}
           value={this.state.name}
         />
-        <p>Goat Description</p>
+        <p>Blade Stens</p>
         <input
           type="text"
           name="description"
           onChange={this.handleChange}
-          value={this.state.description}
+          value={this.state.stens}
+        />
+        <p>Blade Quantity</p>
+        <input
+          type="text"
+          name="description"
+          onChange={this.handleChange}
+          value={this.state.quantity}
         />
         <br></br>
         <input type='submit' />
@@ -50,4 +59,4 @@ class GoatForm extends React.Component {
   }
 }
 
-export default GoatForm;
+export default BladeForm;

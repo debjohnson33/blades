@@ -1,5 +1,5 @@
 {
-  "name": "goatlist",
+  "name": "bladelist",
   "version": "1.0.0",
   "description": "Listing of blades",
   "main": "public/Main.js",
