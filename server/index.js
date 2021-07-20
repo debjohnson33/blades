@@ -18,7 +18,7 @@ app.get('/api/blades', (req, res) => {
     })
 });
 
-app.post('/api/blades', (req, res) => {
+app.post('/api/blade', (req, res) => {
   db.Blade.create({stens: req.body.stens, quantity: req.body.quantity, manufacturer: req.body.manufacturer})
   .then(() => {
     db.Blade
@@ -26,6 +26,16 @@ app.post('/api/blades', (req, res) => {
       .then((blade, created) => {
         res.sendStatus(created ? 201 : 200);
       })
+  })
+  .catch(err => {
+    console.log(err);
+  })
+});
+
+app.put('/api/blade/:id', (req, res) => {
+  db.Blade.update(req.body, {where: {id: req.params.id}})
+  .then(() => {
+    res.sendStatus(200);
   })
   .catch(err => {
     console.log(err);
