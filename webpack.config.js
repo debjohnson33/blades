@@ -7,6 +7,9 @@ module.exports = {
     path: path.join(__dirname, '/public')
   },
   watch: true,
+  optimization: {
+    minimize: false
+  },
   module: {
     rules: [
       {
@@ -17,7 +20,7 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env', "@babel/preset-react"]
           }
-        }
+        },
       },
       {
         test: /\.css$/i,
