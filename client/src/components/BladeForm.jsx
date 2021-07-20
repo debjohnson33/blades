@@ -48,7 +48,7 @@ class BladeForm extends React.Component {
         <p>Blade Manufacturer</p>
         <input
           type="text"
-          name="quantity"
+          name="manufacturer"
           onChange={this.handleChange}
           value={this.state.manufacturer}
         />
