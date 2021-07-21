@@ -31,6 +31,7 @@ class BladeForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.submit.bind(this)}>
+        <h2>Enter the New Blade information</h2>
         <p>Blade Stens</p>
         <input
           type="text"

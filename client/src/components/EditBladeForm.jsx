@@ -31,6 +31,7 @@ class EditBladeForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.submit.bind(this)}>
+        <h2>Edit the Blade information</h2>
         <p>Blade Stens</p>
         <input
           type="text"
